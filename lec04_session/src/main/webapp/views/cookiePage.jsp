@@ -25,6 +25,20 @@
 		}
 	}
 	%>	
+	
+	<!-- 값이 하나일 때 -->
+	<%
+	 	String userNick = null;
+	 	Cookie[] cookies = request.getCookies();
+	 	if(cookies != null){
+	 		for(Cookie c : cookies){
+	 			if("user_nick".equals(c.getName())){
+	 				userNick = c.getValue();
+	 			}
+	 		}
+	 	}
+	 %>
+	<!-- <p>닉네임 : <%=userNick == null ? "_____" : userNick %></p> -->
 	<p>닉네임: <%=saveNick %></p>
 	
 	<form action="/removeNick" method="post">

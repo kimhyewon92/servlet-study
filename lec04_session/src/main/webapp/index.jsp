@@ -1,3 +1,4 @@
+<%@ page import="com.gn.dto.Account" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,5 +42,54 @@
 		}
 	%>
 	<p>user_id 쿠키값 : <%=userId %></p>
+	<h1>Session</h1>
+	<ol>
+		<li>
+			<a href="/createSession">세션 생성</a>
+		</li>
+		<li>
+			<a href="/updateSession">세션 수정</a>
+		</li>
+		<li>
+			<a href="/removeSession">세션 삭제</a>
+		</li>
+		
+	</ol>
+	
+	<%
+		String memberId = "세션 없음";
+		if(session != null) {
+			if(session.getAttribute("member_id") != null) {
+				memberId = (String)session.getAttribute("member_id");
+			}
+		}
+	%>
+	<p>세션 정보: <%=memberId %></p>
+	
+	<% 
+		Account account;
+		if(session != null) {
+			if(session.getAttribute("account") != null) {
+			account = (Account)session.getAttribute("account");
+	%>
+				<p><%= account.getName() %>님 환영합니다!<p>
+				<a href="/logout">로그아웃</a>
+	<%			
+			} else { 
+	%>
+				<form action="/login" method="post">
+				<label for="account_id">아이디 : </label>
+				<input type="text" name="id"><br>
+				<label for="password">비밀번호 : </label>
+				<input type="password" name="pw">
+				<input type="submit" value="로그인">
+			</form>
+	<%		}
+		}
+	%>
+	
+	<h1>장바구니</h1>
+	<a href="/productList">목록 페이지</a>
+	
 </body>
 </html>

@@ -18,13 +18,13 @@ public class TitlePrefixServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("==== 요청 확인 ====");
-		String title = request.getParameter("title"); // 지역변수 / name
-		System.out.println(title);
+		String msg = request.getParameter("title"); // 지역변수, name
+		System.out.println(msg);
 		
 		RequestDispatcher view 
 //		= request.getRequestDispatcher("/views/msgShow.jsp");
-		= getServletContext().getRequestDispatcher("/views/titleShow.jsp");
-		request.setAttribute("title", title); // 이름, value 값
+		= getServletContext().getRequestDispatcher("/views/msgShow.jsp");
+		request.setAttribute("msg", msg); // 이름, value 값
 		view.forward(request, response);
 	}
 

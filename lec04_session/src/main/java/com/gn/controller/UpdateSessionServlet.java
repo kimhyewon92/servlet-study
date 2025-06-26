@@ -4,30 +4,31 @@ import java.io.IOException;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/saveNick")
-public class MakeNicknameServlet extends HttpServlet {
+@WebServlet("/updateSession")
+public class UpdateSessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MakeNicknameServlet() {
+    public UpdateSessionServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 기존 세션 사용(false)
+		HttpSession session = request.getSession(false);
+		// 2. 기존 값 덮어쓰기
+		if(session != null) {
+			session.setAttribute("member_id", "admin"); 
+		}
+		response.sendRedirect("/");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String saveNick = request.getParameter("saveNick");
-		Cookie c = new Cookie("saveNick", saveNick);
-		c.setMaxAge(60 * 60);
-		response.addCookie(c);
-		response.sendRedirect("/practiceCookie");
+		doGet(request, response);
 	}
 
 }
