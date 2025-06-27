@@ -88,6 +88,8 @@
 		}
 	%>
 	
+	<a href="/changePage"> 방문 횟수 추적하기 </a>
+	
 	<h1>장바구니</h1>
 	<a href="/productList">목록 페이지</a>
 	

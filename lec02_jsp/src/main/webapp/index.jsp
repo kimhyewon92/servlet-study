@@ -29,7 +29,7 @@
 	</a>
 	
 	<h1>피자 주문 하기</h1>
-	<a href="pizzaOrder">
+	<a href="/pizzaOrder">
 		피자 주문
 	</a>
 
