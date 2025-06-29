@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Cookie로 방문횟수 추적하기</title>
 </head>
 <body>
 
