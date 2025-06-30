@@ -1,8 +1,12 @@
 package com.gn.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.gn.dto.Visitor;
 
@@ -21,12 +25,33 @@ public class GetNameMsgServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Visitor> list = new ArrayList<Visitor>();
-		String name = request.getParameter("");
-		list.add(new Visitor())
+		request.setCharacterEncoding("UTF-8");
 		
+		List<Visitor> list = new ArrayList<Visitor>();
+		
+		String visitorName = request.getParameter("visitorName");
+		String visitorMsg = request.getParameter("visitorMsg");
+		LocalDateTime dateTime = LocalDateTime.now();
+		
+		System.out.println(visitorName);
+		System.out.println(visitorMsg);
+		System.out.println(dateTime);
+		
+		list.add(new Visitor(visitorName, visitorName, dateTime));
+		
+		JSONArray arr = new JSONArray();
+		
+		for (Visitor v : list) {
+			JSONObject obj = new JSONObject();
+			obj.put(arr, v);
+			obj.put(arr, v);
+			obj.put(arr, v);
+			arr.add(obj);
+		}
 	}
 
+	JSONObject result = new JSONObject();
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

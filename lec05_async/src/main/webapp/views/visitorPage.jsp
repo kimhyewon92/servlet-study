@@ -14,7 +14,6 @@
  	<label for="visitorMsg">메시지 : </label>
  	<input type="text" id="visitorMsg" name="visitorMsg">
  	<button type="button" id="submitNameMsg">등록</button>
- 	
  </form>
  
  <script>
@@ -23,6 +22,7 @@
  			console.log("1: 클릭 이벤트 동작");
  			const visitorName = $("visitorName").val();
  			const visitorMsg = $("visitorMsg").val();
+ 			const visitDate = $("visitDate").val();
  			$.ajax({
  				url: "visitorPostTextAjax?name"+keyword,
  				type: "post",
