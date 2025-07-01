@@ -251,8 +251,5 @@
 		<input type="submit" value="출력하기">
 	</form>
 	
-	
-	
-	
 </body>
 </html>
