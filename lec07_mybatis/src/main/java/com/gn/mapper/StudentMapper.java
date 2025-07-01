@@ -6,4 +6,17 @@ import com.gn.dto.Student;
 
 public interface StudentMapper {
 	List<Student> selectAll();
+	
+	Student selectOne(int studentNo);
+	
+	List<Student> selectSearch(String keyword);
+	
+	int insert(Student param);
+	
+	// 메소드명: updateStudent
+	// 반환형 : int
+	// 매개변수 : Student student 전달받기
+	int updateStudent(Student student);
+	
+	int delete(Student student);
 }
