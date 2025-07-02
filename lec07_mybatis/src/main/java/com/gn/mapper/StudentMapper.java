@@ -18,5 +18,5 @@ public interface StudentMapper {
 	// 매개변수 : Student student 전달받기
 	int updateStudent(Student student);
 	
-	int delete(Student student);
+	int delete(int no);
 }

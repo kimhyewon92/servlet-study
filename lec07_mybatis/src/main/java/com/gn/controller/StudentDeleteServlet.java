@@ -10,11 +10,11 @@ import java.io.IOException;
 import com.gn.service.StudentService;
 
 @WebServlet("/student/delete")
-public class studentDeleteServlet extends HttpServlet {
+public class StudentDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private StudentService service = new StudentService();
        
-    public studentDeleteServlet() {
+    public StudentDeleteServlet() {
         super();
     }
 

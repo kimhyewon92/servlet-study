@@ -43,8 +43,6 @@ public class StudentService {
 	}
 	
 	public int deleteStudent(int no) {
-		Student param = new Student();
-		param.setStudentNo(no);
-		return dao.delete(param);
+		return dao.delete(no);
 	}
 }

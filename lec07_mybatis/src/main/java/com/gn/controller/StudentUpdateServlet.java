@@ -12,11 +12,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/student/update")
-public class studentUpdateServlet extends HttpServlet {
+public class StudentUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private StudentService service = new StudentService();
        
-    public studentUpdateServlet() {
+    public StudentUpdateServlet() {
         super();
     }
 

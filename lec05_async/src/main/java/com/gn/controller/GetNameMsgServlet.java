@@ -31,26 +31,27 @@ public class GetNameMsgServlet extends HttpServlet {
 		
 		String visitorName = request.getParameter("visitorName");
 		String visitorMsg = request.getParameter("visitorMsg");
-		LocalDateTime dateTime = LocalDateTime.now();
+		LocalDateTime visitDatetime = LocalDateTime.now();
 		
-		System.out.println(visitorName);
-		System.out.println(visitorMsg);
-		System.out.println(dateTime);
-		
-		list.add(new Visitor(visitorName, visitorName, dateTime));
+		list.add(new Visitor(visitorName, visitorMsg, visitDatetime));
 		
 		JSONArray arr = new JSONArray();
 		
 		for (Visitor v : list) {
 			JSONObject obj = new JSONObject();
-			obj.put(arr, v);
-			obj.put(arr, v);
-			obj.put(arr, v);
+			obj.put(arr, v.getName());
+			obj.put(arr, v.getMessage());
+			obj.put(arr, v.getDatetime());
 			arr.add(obj);
 		}
+		JSONObject result = new JSONObject();
+		result.put("arr", arr);
+		
+		response.setContentType("application/json; charset=utf-8");
+		response.getWriter().print(result);
 	}
 
-	JSONObject result = new JSONObject();
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

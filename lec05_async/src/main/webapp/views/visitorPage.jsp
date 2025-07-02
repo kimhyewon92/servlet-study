@@ -15,20 +15,30 @@
  	<input type="text" id="visitorMsg" name="visitorMsg">
  	<button type="button" id="submitNameMsg">등록</button>
  </form>
+ <div id ="resultArea"></div>
  
  <script>
  	$(document).ready(function(){
  		$("#submitNameMsg").click(function(){
- 			console.log("1: 클릭 이벤트 동작");
+ 			console.log("111: 클릭 이벤트 동작");
  			const visitorName = $("visitorName").val();
  			const visitorMsg = $("visitorMsg").val();
- 			const visitDate = $("visitDate").val();
+ 			const visitDatetime = $("visitDatetime").val();
+ 			console.log("222: 사용자 정보 받아와졌는가");
  			$.ajax({
  				url: "visitorPostTextAjax?name"+keyword,
  				type: "post",
  				dataType: "json",
- 				data : {
- 					
+ 				data : {visitorName : visitorName,
+ 						visitorMsg : visitorMsg,
+ 						visitDatetime : visitDatetime},
+ 				success : function(data){
+ 					console.log("333: 요청 정상 동작 여부");
+ 					const p = $("<p>").text(data);
+ 					$("#resultArea").html(p);
+ 				},
+ 				error : function() {
+ 					alert("요청 실패!");
  				}
  			});
  		});
