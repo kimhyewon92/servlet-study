@@ -16,4 +16,12 @@ public class MemberService {
 		return result;
 	}
 	
+	public Member selectMember(String memberId, String memberPw) {
+		Member param = new Member();
+		param.setMemberId(memberId);
+		param.setMemberPw(memberPw);
+		Member result = dao.selectMember(param);
+		return result;
+	}
+	
 }

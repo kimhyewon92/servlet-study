@@ -52,7 +52,10 @@
 					},
 					dataType : 'json',
 					success : function(data){
-						
+						alert(data.res_msg);
+						if(data.res_code == 200){
+							// 로그인 화면 전환
+						}
 					}
 				})
 			}
