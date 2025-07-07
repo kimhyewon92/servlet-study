@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홈</title>
+<title>메인화면</title>
 </head>
 <body>
 	<h1>메인화면</h1>
 	
-	<%@ include file="/views/include/nav.jsp" %>
+	<a href="<c:url value='/qnaList'/>">질의응답</a>
 </body>
 </html>
