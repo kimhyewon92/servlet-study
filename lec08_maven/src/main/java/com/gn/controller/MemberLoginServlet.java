@@ -54,6 +54,8 @@ public class MemberLoginServlet extends HttpServlet {
 			obj.put("res_msg", "정상적으로 로그인되었습니다.");
 		}
 		
+		System.out.println(obj.toString());
+		
 		response.setContentType("application/json;charset=utf8");
 		response.getWriter().print(obj);
 		System.out.println(member);

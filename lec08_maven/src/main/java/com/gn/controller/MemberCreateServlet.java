@@ -44,6 +44,7 @@ public class MemberCreateServlet extends HttpServlet {
 			obj.put("res_msg", "회원가입 성공!!");
 		}
 		
+		
 		response.setContentType("application/json; charset=utf-8");
 		response.getWriter().print(obj);
 		
