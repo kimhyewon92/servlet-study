@@ -40,6 +40,7 @@ public class BoardListServlet extends HttpServlet {
 		// 현재 페이지 정보 셋팅
 		int nowPage = 1;
 		String nowPageStr = request.getParameter("nowPage");
+		System.out.println(nowPageStr);
 		if(nowPageStr != null) {
 			nowPage = Integer.parseInt(nowPageStr);
 		}

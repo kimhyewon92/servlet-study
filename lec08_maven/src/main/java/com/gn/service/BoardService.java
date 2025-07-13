@@ -13,11 +13,11 @@ public class BoardService {
 	private BoardDao boardDao = new BoardDao();
 	
 	public List<Board> selectBoardList(Board param){
-		return boardDao.selectBoardList(param);
+		return boardDao.selectBoardList(param); // param 에 저장된 값은 nowpage, keyword, totaldata
 	}
 	
 	public int selectBoardCount(Board param) {
-		return boardDao.selectBoardCount(param);
+		return boardDao.selectBoardCount(param); // param 에 저장된 값은 nowpage, keyword
 	}
 	
 	public Board selectBoardOne(int boardNo) {
