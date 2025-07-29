@@ -11,7 +11,7 @@ public class Robot {
 	public void m1() {
 		int a = 10;
 		this.arm.attack();
-		System.out.println(arm.tan);
+		System.out.println(((LeftArm)arm).tan);
 	}
 	
 }
